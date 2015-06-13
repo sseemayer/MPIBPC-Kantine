@@ -1,5 +1,7 @@
 {
 	"url": "http://poppler.freedesktop.org/poppler-0.33.0.tar.xz",
 	"source_dir": "poppler-src",
-	"install_dir": "poppler"
+	"install_dir": "poppler",
+	
+	"configure_arguments": []
 }
