@@ -3,5 +3,7 @@
 	"source_dir": "poppler-0.33.0",
 	"install_dir": "poppler",
 	
-	"configure_arguments": []
+	"configure_arguments": [
+		"--disable-libjpeg"
+	]
 }
