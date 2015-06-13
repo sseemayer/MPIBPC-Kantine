@@ -1,5 +1,6 @@
 beautifulsoup4==4.3.2
 gunicorn==19.3.0
+humanize==0.5.1
 Flask==0.10.1
 Jinja2==2.7.3
 MarkupSafe==0.23
