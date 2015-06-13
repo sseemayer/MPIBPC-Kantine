@@ -26,3 +26,8 @@ def next_meals():
         }
         for m in upcoming_meals
     ])
+
+
+@app.teardown_request
+def shutdown_session(exception=None):
+    session.remove()
