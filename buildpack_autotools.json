@@ -10,7 +10,6 @@
 		"--disable-poppler-glib",
 		"--disable-libpng",
 		"--disable-libtiff",
-		"--disable-splash-output",
 		"--disable-cairo-output"
 	]
 }
