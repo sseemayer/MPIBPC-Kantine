@@ -6,10 +6,8 @@ from kantine.database import Base
 class Meal(Base):
     __tablename__ = 'meals'
     id = Column(Integer, primary_key=True)
-    date = Column(Date)
+    date = Column(Date, index=True)
     name = Column(String(512))
     name_en = Column(String(512))
-    mealtype = Column(String(20))
-
-
+    mealtype = Column(String(20), index=True)
 
