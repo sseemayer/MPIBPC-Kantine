@@ -4,6 +4,7 @@
 	"install_dir": "poppler",
 	
 	"configure_arguments": [
-		"--disable-libjpeg"
+		"--disable-libjpeg",
+		"--disable-libopenjpeg"
 	]
 }
