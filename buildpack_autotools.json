@@ -4,7 +4,13 @@
 	"install_dir": "poppler",
 	
 	"configure_arguments": [
+		"--disable-libopenjpeg",
 		"--disable-libjpeg",
-		"--disable-libopenjpeg"
+		"--disable-poppler-qt4",
+		"--disable-poppler-glib",
+		"--disable-libpng",
+		"--disable-libtiff",
+		"--disable-splash-output",
+		"--disable-cairo-output"
 	]
 }
