@@ -21,7 +21,12 @@ class Translator(object):
         if not req.ok:
             raise req.text
 
-        return req.json()[u'responseData'][u'translatedText']
+        translation = req.json()[u'responseData'][u'translatedText']
+
+        if 'MYMEMORY WARNING:' in translation:
+            raise translation
+
+        return translation
 
 
 if __name__ == '__main__':

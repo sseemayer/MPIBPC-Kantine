@@ -31,7 +31,7 @@ def main():
         for mtype in menu.columns[1:]:
             for date, meal in zip(menu['date'], menu[mtype]):
                 if meal.strip():
-                    meals.append(kantine.models.Meal(name=meal, date=date, mealtype=mtype))
+                    meals.append(kantine.models.Meal(name=meal, name_en=None, date=date, mealtype=mtype))
 
         kantine.database.session.add_all(meals)
         kantine.database.session.commit()

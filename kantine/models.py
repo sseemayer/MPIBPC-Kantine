@@ -8,6 +8,7 @@ class Meal(Base):
     id = Column(Integer, primary_key=True)
     date = Column(Date)
     name = Column(String(512))
+    name_en = Column(String(512))
     mealtype = Column(String(20))
 
 
