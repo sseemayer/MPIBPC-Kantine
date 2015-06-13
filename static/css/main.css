@@ -154,19 +154,18 @@ header h3 {
   font-size: 9pt;
 }
 
-nav a {
+a {
   color: #116656;
   text-decoration: none;
-  padding-right: 15pt;
 }
 
-nav a:hover {
+a:hover {
   text-decoration: underline;
 }
 
-
-
-
+nav a {
+  padding-right: 15pt;
+}
 
 
 
