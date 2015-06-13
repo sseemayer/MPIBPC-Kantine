@@ -68,3 +68,4 @@ Session.vim
 bin
 include
 src
+pip-selfcheck.json
