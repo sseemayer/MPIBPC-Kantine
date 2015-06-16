@@ -46,6 +46,10 @@ def home():
 
     return render_template("index.html", meals=sorted(list(meals_grouped.values()), key=lambda d: d['date']))
 
+@app.route("/favicon.ico")
+def static_favicon():
+    return app.send_static_file(os.path.join(static_folder, 'favicon.ico'))
+
 @app.route("/images/<path:path>")
 def static_image(path):
     return send_from_directory(os.path.join(static_folder, 'images'), path)
