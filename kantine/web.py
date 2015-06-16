@@ -48,7 +48,7 @@ def home():
 
 @app.route("/favicon.ico")
 def static_favicon():
-    return app.send_static_file(os.path.join(static_folder, 'favicon.ico'))
+    return app.send_static_file('favicon.ico')
 
 @app.route("/images/<path:path>")
 def static_image(path):
