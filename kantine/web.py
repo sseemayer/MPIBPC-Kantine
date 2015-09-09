@@ -52,7 +52,7 @@ def home():
 @app.route("/on/<date>")
 def meals_on(date):
     date = datetime.datetime.strptime(date, "%Y-%m-%d")
-    meals = session.query(Meal).filter(Meal.date == date).all()
+    meals = session.query(Meal).filter(Meal.date == date).order_by(Meal.mealtype).all()
 
     meals_grouped = group_meals(meals)
     return render_template("index.html", meals=sorted(list(meals_grouped.values()), key=lambda d: d['date']))
