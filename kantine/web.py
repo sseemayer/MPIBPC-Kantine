@@ -105,7 +105,7 @@ def api_meals_on(date):
             "name_de": m.name,
             "name_en": m.name_en
         }
-        for m in upcoming_meals
+        for m in meals
     ])
 
 
