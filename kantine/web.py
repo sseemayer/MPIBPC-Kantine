@@ -49,7 +49,7 @@ def home():
     return render_template("index.html", meals=sorted(list(meals_grouped.values()), key=lambda d: d['date']))
 
 
-@app.route("/on/<date:str>")
+@app.route("/on/<str:date>")
 def api_meals_on(date):
     date = datetime.datetime.strptime(date, "%Y-%m-%d")
     meals = session.query(Meal).filter(Meal.date == date).all()
@@ -93,7 +93,7 @@ def api_next_meals():
     ])
 
 
-@app.route("/api/meals/on/<date:str>")
+@app.route("/api/meals/on/<str:date>")
 def api_meals_on(date):
     date = datetime.datetime.strptime(date, "%Y-%m-%d")
     meals = session.query(Meal).filter(Meal.date == date).all()
