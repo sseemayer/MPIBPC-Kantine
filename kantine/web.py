@@ -50,7 +50,7 @@ def home():
 
 
 @app.route("/on/<date>")
-def api_meals_on(date):
+def meals_on(date):
     date = datetime.datetime.strptime(date, "%Y-%m-%d")
     meals = session.query(Meal).filter(Meal.date == date).all()
 
