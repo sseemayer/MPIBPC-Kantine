@@ -1,7 +1,5 @@
 import os
-import collections
 import datetime
-import humanize
 
 from flask import Flask, request, redirect, url_for, jsonify, send_from_directory, render_template
 
@@ -12,11 +10,9 @@ static_folder = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__
 
 app = Flask(__name__, static_folder=static_folder, template_folder=static_folder)
 
-@app.route("/")
-def home():
 
-
-    upcoming_meals = session.query(Meal).filter(Meal.date >= datetime.datetime.now().date()).order_by(Meal.mealtype).order_by(Meal.date).all()
+def group_meals(meals):
+    meals_grouped = {}
 
     type_to_human = {
         "meal1": "Option 1",
@@ -26,9 +22,7 @@ def home():
         "sides": "Extras"
     }
 
-    meals_grouped = {}
-
-    for m in upcoming_meals:
+    for m in meals:
         ifmt = m.date.isoformat()
         if ifmt not in meals_grouped:
             meals_grouped[ifmt] = {
@@ -44,15 +38,35 @@ def home():
             "name_en": m.name_en
         })
 
+    return meals_grouped
+
+
+@app.route("/")
+def home():
+    upcoming_meals = session.query(Meal).filter(Meal.date >= datetime.datetime.now().date()).order_by(Meal.mealtype).order_by(Meal.date).all()
+    meals_grouped = group_meals(upcoming_meals)
+
     return render_template("index.html", meals=sorted(list(meals_grouped.values()), key=lambda d: d['date']))
+
+
+@app.route("/on/<date:str>")
+def api_meals_on(date):
+    date = datetime.datetime.strptime(date, "%Y-%m-%d")
+    meals = session.query(Meal).filter(Meal.date == date).all()
+
+    meals_grouped = group_meals(meals)
+    return render_template("index.html", meals=sorted(list(meals_grouped.values()), key=lambda d: d['date']))
+
 
 @app.route("/favicon.ico")
 def static_favicon():
     return app.send_static_file('favicon.ico')
 
+
 @app.route("/images/<path:path>")
 def static_image(path):
     return send_from_directory(os.path.join(static_folder, 'images'), path)
+
 
 @app.route("/js/<path:path>")
 def static_js(path):
@@ -65,8 +79,24 @@ def static_css(path):
 
 
 @app.route("/api/meals")
-def next_meals():
+def api_next_meals():
     upcoming_meals = session.query(Meal).filter(Meal.date >= datetime.datetime.now().date()).order_by(Meal.date).all()
+
+    return jsonify(meals=[
+        {
+            "date": m.date.isoformat(),
+            "type": m.mealtype,
+            "name_de": m.name,
+            "name_en": m.name_en
+        }
+        for m in upcoming_meals
+    ])
+
+
+@app.route("/api/meals/on/<date:str>")
+def api_meals_on(date):
+    date = datetime.datetime.strptime(date, "%Y-%m-%d")
+    meals = session.query(Meal).filter(Meal.date == date).all()
 
     return jsonify(meals=[
         {
