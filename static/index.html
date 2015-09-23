@@ -21,52 +21,55 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
 
-      <div class="header-container">
-          <header class="wrapper clearfix">
-              <h1 class="title">MPI-BPC Kantine</h1>
-              <h2 class="subtitle">inofficial menu translations</h2>
-          </header>
-      </div>
+      <div id="wrapper">
 
-      <div class="main-container">
-          <div class="main wrapper clearfix">
+        <div class="header-container">
+            <header class="wrapper clearfix">
+                <h1 class="title">MPI-BPC Kantine</h1>
+                <h2 class="subtitle">inofficial menu translations</h2>
+            </header>
+        </div>
 
-              {% for meal in meals %}
-              <article>
-                  <header>
-                    <h3>{{ meal.date_human }}</h3>
-                  </header>
+        <div class="main-container">
+            <div class="main wrapper clearfix">
 
-                  {% for option in meal.options %}
-                  <section class="menu_option">
-                    <h4>{{option.type_human}}</h4>
-                    <div class="menu_item de">
-                      {{ option.name_de }}
-                    </div>
-                    <div class="menu_item en">
-                      {{ option.name_en}}
-                    </div>
-                  </section>
-                  {% endfor %}
+                {% for meal in meals %}
+                <article>
+                    <header>
+                      <h3>{{ meal.date_human }}</h3>
+                    </header>
 
-              </article>
-              {% endfor %}
+                    {% for option in meal.options %}
+                    <section class="menu_option">
+                      <h4>{{option.type_human}}</h4>
+                      <div class="menu_item de">
+                        {{ option.name_de }}
+                      </div>
+                      <div class="menu_item en">
+                        {{ option.name_en}}
+                      </div>
+                    </section>
+                    {% endfor %}
 
-          </div> <!-- #main -->
-      </div> <!-- #main-container -->
+                </article>
+                {% endfor %}
 
-      <div class="footer-container">
-          <footer class="wrapper">
-            <div class="disclaimer">
-              <div class="de">Die Daten auf dieser Website werden maschinell aus den PDF-Dateien der <a href="http://mpibpc.mpg.de/kantine">offiziellen Kantinen-Website</a> extrahiert und übersetzt und erheben keinen Anspruch auf Richtigkeit oder Zuverlässigkeit. </div>
-              <div class="en">The data on this website was automatically extracted and translated from the PDF files on the <a href="http://mpibpc.mpg.de/kantine">official Kantinen-Website</a> and no claims of reliability or correctness are made.</div>
-              </div>
-              <nav>
-                <a href="mailto:stefan.seemayer@mpibpc.mpg.de?subject=MPI-BPC Kantine">Contact</a>
-                <a href="https://github.com/sseemayer/mpibpc-kantine">GitHub</a>
-                <a href="/api/meals">API</a>
-              </nav>
-            </footer>
+            </div> <!-- #main -->
+        </div> <!-- #main-container -->
+
+        <div class="footer-container">
+            <footer class="wrapper">
+              <div class="disclaimer">
+                <div class="de">Die Daten auf dieser Website werden maschinell aus den PDF-Dateien der <a href="http://mpibpc.mpg.de/kantine">offiziellen Kantinen-Website</a> extrahiert und übersetzt und erheben keinen Anspruch auf Richtigkeit oder Zuverlässigkeit. </div>
+                <div class="en">The data on this website was automatically extracted and translated from the PDF files on the <a href="http://mpibpc.mpg.de/kantine">official Kantinen-Website</a> and no claims of reliability or correctness are made.</div>
+                </div>
+                <nav>
+                  <a href="mailto:stefan.seemayer@mpibpc.mpg.de?subject=MPI-BPC Kantine">Contact</a>
+                  <a href="https://github.com/sseemayer/mpibpc-kantine">GitHub</a>
+                  <a href="/api/meals">API</a>
+                </nav>
+              </footer>
+          </div>
         </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

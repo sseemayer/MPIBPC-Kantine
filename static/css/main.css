@@ -56,8 +56,18 @@ textarea {
    Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
    ========================================================================== */
 
+html {
+  height: 100%;
+}
+
 body {
     font: 16px/26px Fira sans, Helvetica, Helvetica Neue, Arial, sans-serif;
+    height: 100%;
+}
+
+#wrapper {
+  min-height: 100%;
+  position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -122,8 +132,20 @@ h3 {
     padding: 0px 5% 10px;
 }
 
+.main-container {
+  padding-bottom: 200px;
+}
+
 .footer-container footer {
     padding: 20px 0;
+}
+
+.footer-container {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 200px;
 }
 
 /* ===============
