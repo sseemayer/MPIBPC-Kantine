@@ -28,6 +28,7 @@ def group_meals(meals):
             meals_grouped[ifmt] = {
                 "date": ifmt,
                 "date_human": m.date.strftime("%A, %B %d"),
+                "date_link": url_for("meals_on", date=m.date),
                 "options": []
             }
 
