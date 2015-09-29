@@ -36,7 +36,7 @@
             <div class="main wrapper clearfix">
 
                 {% for meal in meals %}
-                <article class="{{day_class}}">
+                <article class="{{meal.day_class}}">
                     <header class="date">
                       <h3><a href="{{meal.date_link}}">{{ meal.date_human }}</a></h3>
                     </header>
