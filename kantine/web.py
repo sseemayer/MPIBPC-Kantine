@@ -39,8 +39,8 @@ def group_meals(meals):
             "name_en": m.name_en
         })
 
-    for mg in meals_grouped.values():
-        mg['day_class'] = "meals-{0}".format(len(mg['options']))
+    for mg in meals_grouped.keys():
+        meals_grouped[mg]['day_class'] = "meals-{0}".format(len(meals_grouped[mg]['options']))
 
     return meals_grouped
 
