@@ -43,7 +43,7 @@ def group_meals(meals):
     for mg in meals_grouped.keys():
         meals_grouped[mg]['day_class'] = "meals-{0}".format(len(meals_grouped[mg]['options']))
 
-        if meals_grouped[mg]['data'] == today_date:
+        if meals_grouped[mg]['date'] == today_date:
             meals_grouped[mg]['day_class'] += " today"
 
     return meals_grouped

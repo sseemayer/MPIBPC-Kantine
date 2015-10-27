@@ -270,6 +270,9 @@ header.date a:hover:after {
 
   .today {
     font-size: 125%;
+    background: #eef2f1;
+    margin: -5px;
+    padding: 5px;
   }
 
   .menu_option:last-child {
