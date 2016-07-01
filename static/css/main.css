@@ -253,8 +253,26 @@ header.date a:hover:after {
 
   .menu_option {
     float: left;
-    width: 46%;
     margin-right: 2%;
+  }
+
+  .meals-3 .menu_option {
+    width: 32%;
+  }
+
+  .meals-4 .menu_option {
+    width: 48%;
+  }
+
+  .meals-5 .menu_option {
+    width: 48%;
+  }
+
+  .today {
+    font-size: 125%;
+    background: #eef2f1;
+    margin: -5px;
+    padding: 5px;
   }
 
   .menu_option:last-child {
@@ -286,8 +304,19 @@ header.date a:hover:after {
 
   .menu_option {
     float: left;
-    width: 24%;
     margin-right: 1%;
+  }
+
+  .meals-3 .menu_option {
+    width: 32%;
+  }
+
+  .meals-4 .menu_option {
+    width: 24%;
+  }
+
+  .meals-5 .menu_option {
+    width: 19%;
   }
 
   .menu_option:last-child {

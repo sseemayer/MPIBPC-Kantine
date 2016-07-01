@@ -39,6 +39,13 @@ def group_meals(meals):
             "name_en": m.name_en
         })
 
+    today_date = datetime.date.today().isoformat()
+    for mg in meals_grouped.keys():
+        meals_grouped[mg]['day_class'] = "meals-{0}".format(len(meals_grouped[mg]['options']))
+
+        if meals_grouped[mg]['date'] == today_date:
+            meals_grouped[mg]['day_class'] += " today"
+
     return meals_grouped
 
 
